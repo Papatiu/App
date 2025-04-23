@@ -1,5 +1,3 @@
---- START OF FILE app/src/main/java/com/example/appnet/afetnet/mesh/MeshNode.kt ---
-
 package com.example.appnet.afetnet.mesh
 
 import android.bluetooth.BluetoothDevice // BluetoothDevice objesi Android SDK'sında bulunur

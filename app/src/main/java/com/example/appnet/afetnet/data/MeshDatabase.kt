@@ -1,5 +1,3 @@
---- START OF FILE app/src/main/java/com/example/appnet/afetnet/data/MeshDatabase.kt ---
-
 package com.example.appnet.afetnet.data
 
 import android.content.Context

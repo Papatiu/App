@@ -12,7 +12,7 @@
     <TextView
         android:id="@+id/signalTypeTextView"
         android:layout_width="match_parent"
-        android="layout_height="
+        android:layout_height="wrap_content" 
         android:textSize="18sp"
         android:textStyle="bold"
         tools:text="Yardım Çağrısı"/>
@@ -27,7 +27,7 @@
 
      <TextView
         android:id="@+id/signalTimeTextView"
-        android:layout_width="match_match"
+        android:layout_width="match_parent"  
         android:layout_height="wrap_content"
         android:textSize="12sp"
         android:layout_marginTop="2dp"
@@ -41,6 +41,6 @@
         android:layout_marginTop="4dp"
         tools:text="Mesaj: Enkaz altındayız, sesimizi duyan var mı?"/>
 
-
+     <!-- TODO: Konum bilgisi, Haritada Göster butonu eklenebilir -->
 
 </LinearLayout>

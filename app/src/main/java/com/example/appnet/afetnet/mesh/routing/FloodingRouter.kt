@@ -1,5 +1,3 @@
---- START OF FILE app/src/main/java/com/example/appnet/afetnet/mesh/routing/FloodingRouter.kt ---
-
 package com.example.appnet.afetnet.mesh.routing
 
 import android.util.Log

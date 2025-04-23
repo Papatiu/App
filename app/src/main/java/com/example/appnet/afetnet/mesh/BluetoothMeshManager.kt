@@ -1,5 +1,3 @@
---- START OF FILE app/src/main/java/com.example/appnet/afetnet/mesh/BluetoothMeshManager.kt (UPDATED WITH GATT CLIENT) ---
-
 package com.example.appnet.afetnet.mesh
 
 import android.Manifest

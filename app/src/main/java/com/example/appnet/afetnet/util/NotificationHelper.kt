@@ -1,5 +1,3 @@
---- START OF FILE app/src/main/java/com/example/appnet/afetnet/util/NotificationHelper.kt ---
-
 package com.example.appnet.afetnet.util
 
 import android.app.Notification

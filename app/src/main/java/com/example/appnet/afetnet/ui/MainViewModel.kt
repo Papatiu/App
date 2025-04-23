@@ -1,5 +1,3 @@
---- START OF FILE app/src/main/java/com/example/appnet/afetnet/ui/MainViewModel.kt ---
-
 package com.example.appnet.afetnet.ui
 
 import android.app.Application

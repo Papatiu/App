@@ -1,5 +1,3 @@
---- START OF FILE app/src/main/java/com/example/appnet/afetnet/mesh/WifiMeshManager.kt ---
-
 package com.example.appnet.afetnet.mesh
 
 import android.content.Context

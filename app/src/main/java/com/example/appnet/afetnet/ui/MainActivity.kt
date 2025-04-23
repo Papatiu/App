@@ -1,5 +1,3 @@
---- START OF FILE app/src/main/java/com/example/appnet/afetnet/ui/MainActivity.kt ---
-
 package com.example.appnet.afetnet.ui
 
 import android.Manifest

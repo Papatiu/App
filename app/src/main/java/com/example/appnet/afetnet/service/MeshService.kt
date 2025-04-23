@@ -1,5 +1,3 @@
---- START OF FILE app/src/main/java/com/example/appnet/afetnet/service/MeshService.kt ---
-
 package com.example.appnet.afetnet.service
 
 import android.app.Service
