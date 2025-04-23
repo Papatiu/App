@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:layout_marginBottom="8dp"
+    android:background="@android:color/white"
+    android:elevation="2dp">
+
+    <TextView
+        android:id="@+id/signalTypeTextView"
+        android:layout_width="match_parent"
+        android="layout_height="
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="Yardım Çağrısı"/>
+
+    <TextView
+        android:id="@+id/signalSenderTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"
+        tools:text="Gönderen ID: abc-123-xyz"/>
+
+     <TextView
+        android:id="@+id/signalTimeTextView"
+        android:layout_width="match_match"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:layout_marginTop="2dp"
+        tools:text="Alındı: 10:30 - 2 Hop"/>
+
+    <TextView
+        android:id="@+id/signalMessageTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"
+        tools:text="Mesaj: Enkaz altındayız, sesimizi duyan var mı?"/>
+
+
+
+</LinearLayout>

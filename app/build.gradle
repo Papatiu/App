@@ -1,0 +1,84 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    // Eğer Room kullanacaksak KSP (Kotlin Symbol Processing) eklentisi gerekebilir
+    // id 'com.google.devtools.ksp' version 'XXX' // Sizin KSP sürümünüzü buraya ekleyin
+}
+
+android {
+    compileSdk 34 // Android 14'ü hedeflemek için SDK'yı yükseltelim (Yeni izinler için)
+
+    defaultConfig {
+        applicationId "com.example.appnet"
+        minSdk 23 // Android 6.0
+        targetSdk 34 // Android 14'ü hedefliyoruz
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false // Yayın build'lerinde true yapıp Proguard kurallarını ayarlayacağız
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        // Kotlin ile çalıştığımız için Java 1.8 genellikle yeterlidir.
+        // Ancak kütüphaneler daha yenisini isterse burası yükseltilebilir.
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    // Eğer KSP kullanacaksak buildFeatures içine eklenir
+    // buildFeatures {
+    //     ksp true
+    // }
+}
+
+dependencies {
+
+    // Temel Androidx Kütüphaneleri (Versiyonları güncelleyebiliriz)
+    // Gönderdiğin versiyonlar zaten yeni sayılır, onlarla devam edelim veya en stabil son versiyonları alalım.
+    // Maven Central veya Google Maven'dan güncel versiyonları kontrol etmek iyidir.
+    // 1.7.0 ve 1.12.0 civarı stabil ve yeni görünüyor.
+    implementation 'androidx.core:core-ktx:1.13.0' // Daha yeni stabil versiyon
+    implementation 'androidx.appcompat:appcompat:1.6.1' // Daha yeni stabil versiyon
+    implementation 'com.google.android.material:material:1.11.0' // Daha yeni stabil versiyon
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4' // Daha yeni stabil versiyon
+
+    // Kotlin Coroutines (Arka plan ve asenkron işlemler için)
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3" // En son stabil versiyon
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3" // En son stabil versiyon
+
+    // Android Lifecycle Kütüphaneleri (ViewModel ve Coroutine Scope için)
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0" // ViewModel için, coroutine scope içerir
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.7.0"   // Lifecycle-aware coroutine scope için
+
+    // JSON İşlemleri İçin Kütüphane (Gson önerisi)
+    implementation 'com.google.code.gson:gson:2.10.1' // Gson kütüphanesi
+
+    // Room Persistence Library (Veritabanı için - Eğer kullanacaksak)
+    // Bu projede kritik sinyalleri saklamak mantıklı olabilir.
+    // implementation "androidx.room:room-runtime:2.6.1" // En son stabil versiyon
+    // annotationProcessor "androidx.room:room-compiler:2.6.1" // Java için
+    // kapt "androidx.room:room-compiler:2.6.1" // Kotlin için (kapt eklentisi gerektirir)
+    // Eğer KSP kullanıyorsanız: ksp "androidx.room:room-compiler:2.6.1"
+
+    // Room Kotlin Coroutines Desteği
+    // implementation "androidx.room:room-ktx:2.6.1"
+
+
+    // Test Kütüphaneleri (Şimdilik temel olanlar yeterli)
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5' // Daha yeni stabil versiyon
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1' // Daha yeni stabil versiyon
+}
+
+// KSP eklentisi eğer Room kullanıyorsak buraya da eklenmeli
+// plugins {
+//    id 'com.google.devtools.ksp' version 'XXX' apply false // XXX yerine sürüm numarası
+// }

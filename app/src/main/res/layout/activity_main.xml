@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".afetnet.ui.MainActivity">
+
+    <TextView
+        android:id="@+id/statusTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Durum: Yükleniyor..."
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/sendDistressButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Yardım İsteyin"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statusTextView"
+        app:layout_constraintEnd_toStartOf="@+id/sendSafeButton"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_marginEnd="8dp"/>
+
+    <Button
+        android:id="@+id/sendSafeButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Güvendeyim"
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:textColor="@android:color/white"
+         android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/sendDistressButton"
+        app:layout_constraintTop_toBottomOf="@+id/statusTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_marginStart="8dp"/>
+
+     <TextView
+         android:id="@+id/signalsTitleTextView"
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+         android:text="Alınan Sinyaller:"
+         android:textSize="16sp"
+         android:textStyle="bold"
+         android:layout_marginTop="24dp"
+         app:layout_constraintStart_toTopOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/sendDistressButton"
+         app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/signalsRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signalsTitleTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/list_item_signal" /> <!-- list_item_signal layout'unu da oluşturmalısınız -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

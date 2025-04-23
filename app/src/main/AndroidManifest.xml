@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.appnet">
+
+    <!-- Gerekli İzinler -->
+
+    <!-- Temel Bluetooth ve Yönetim İzinleri -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <!-- Bluetooth LE Tarama ve Reklam İçin Konum İzni (Android 10 ve öncesi için zorunlu, 11+ için farklı durumlar var) -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- Android 12+ İçin Yeni Bluetooth İzinleri -->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" android:usesPermissionFlags="neverForLocation" /> <!-- Konum için kullanılmadığını belirtiyoruz -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+
+
+    <!-- Arka Plan Servisi İzni -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <!-- Android 14+ için yeni foreground service type izni -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"/>
+     <!-- Android 14+ özel kullanım türünü belirtin -->
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" /> <!-- Olası kritik bildirimler için -->
+
+
+    <!-- Cihaz uykudayken kısa süreli çalışmak için (Dikkatli kullanılmalı, pil tüketir) -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- Cihaz başladığında otomatik başlaması için (Android'de giderek kısıtlanıyor, foreground service daha güvenli) -->
+    <!-- <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> -->
+
+
+    <!-- Uygulamanın Bluetooth LE kullandığını belirtiyoruz -->
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppNet"
+        android:name=".afetnet.AfetNetApplication" 
+        tools:targetApi="31">
+
+        <!-- Ana Aktivite Tanımlaması -->
+        <activity
+            android:name=".afetnet.ui.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Mesh Servisi Tanımlaması -->
+        <service android:name=".afetnet.service.MeshService"
+                 android:foregroundServiceType="connectedDevice|location"
+                 android:exported="false"> <!-- Servis dışarıdan çağrılmayacak -->
+            <!-- Android 14+ için özel kullanım türünü belirtin -->
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="afet_mesh_network"/>
+        </service>
+
+        <!-- Cihaz başladığında servisi başlatmak için Receiver (Eğer kullanacaksak) -->
+        <!-- <receiver android:name=".afetnet.util.BootCompletedReceiver"
+                  android:enabled="true"
+                  android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver> -->
+
+
+    </application>
+
+</manifest>
